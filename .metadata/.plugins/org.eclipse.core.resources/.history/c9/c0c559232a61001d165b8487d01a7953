@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+
+public class Curso {
+
+	//atributos
+	private String nombre;
+	private ArrayList <Alumno> listaAlumnos;
+
+	//constructor
+	private Curso(String nombre, ArrayList listaAlumno) {
+		this.nombre = nombre;
+		this.listaAlumnos=listaAlumnos;
+	}
+	
+	//getters/setters
+	public String getNombre() {
+		return nombre;
+	}
+
+	public ArrayList<Alumno> getListaAlumnos() {
+		return listaAlumnos;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setListaAlumnos(ArrayList<Alumno> listaAlumnos) {
+		this.listaAlumnos = listaAlumnos;
+	}
+	
+	//métodos de clase
+	
+	public void insertarAlumno(Alumno alumno) {
+
+		listaAlumnos.add(alumno);
+
+	}	
+	
+	public void eliminaAlumno(Alumno alumno) {
+
+		listaAlumnos.remove(alumno);
+
+	}	
+
+}

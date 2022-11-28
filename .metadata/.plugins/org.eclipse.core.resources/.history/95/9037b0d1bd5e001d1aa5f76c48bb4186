@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public class Juego {
+
+	private ArrayList<Jugador> listaJugadores;
+	private Revolver revolver;
+	
+	public Juego(Revolver revolver, ArrayList<Jugador> listaJugadores) {
+
+		this.revolver = revolver;
+		this.listaJugadores = listaJugadores;
+	}
+	
+public void ronda() {
+		
+	for (int i = 0; i < listaJugadores.size(); i++) {
+		
+		listaJugadores.get(i).jugar(revolver);
+		System.out.println("El jugador " + listaJugadores.get(i).getNickname()+ " dispara el revolver");
+		revolver.toString();
+		}
+		
+	}
+
+public boolean finJuego(){
+	return true;
+	
+}
+	
+}

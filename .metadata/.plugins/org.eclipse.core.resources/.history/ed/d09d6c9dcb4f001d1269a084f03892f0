@@ -1,0 +1,92 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+
+	public static ArrayList<Hotel> llistaHotels = new ArrayList<Hotel>();
+
+	public static void main(String[] args) {
+
+		int numMenu = 0;
+
+		do {
+
+			numMenu = demanaNum(
+					"Escolleix una opció del menú: \n\n1.Crear hotel \n2.Donar de baixa hotel \n3.Mostrar hotel \n4.Modificar hotel\n0.Finalitzar programa ");
+
+			switch (numMenu) {
+
+			case 0:
+				System.out.println("Finalitzant el programa");
+				break;
+			case 1:
+				crearHotel();
+				break;
+			case 2:
+
+				break;
+			case 3:
+				
+				String nomHotel = demanaString("Introdueix el nom de l'hotel que vols veure");
+				veureHotel(nomHotel);
+
+				break;
+			case 4:
+
+				break;
+
+			default:
+				System.out.println("error, no has seleccionat cap opció del menú");
+			}
+
+		} while (numMenu != 0);
+
+	}
+
+	static void crearHotel() {
+
+		String nom = demanaString("Introdueix el nom de l'hotel");
+		int numHabitacions = demanaNum("Introdueix el número d'habitacions de l'hotel");
+		int numPlantes = demanaNum("Introdueix el número de plante de l'hotel");
+		float superficie = demanaFloat("Introdueix la superfície de l'hotel");
+
+		Hotel hotel = new Hotel(nom, numHabitacions, numPlantes, superficie);
+
+		llistaHotels.add(hotel);
+	}
+
+	static void veureHotel(String nomHotel) {
+
+		for (int index = 0; index < llistaHotels.size(); index++) {
+			if (llistaHotels.get(index).getNom() == nomHotel) {
+
+				System.out.println(llistaHotels.get(index));
+
+			} else {
+				System.out.println("Aquest hotel no es troba dins de la nostra base de dades");
+			}
+		}
+	}
+
+	static int demanaNum(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		int numero = input.nextInt();
+		return numero;
+	}
+
+	static String demanaString(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		String text = input.nextLine();
+		return text;
+	}
+
+	static float demanaFloat(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		float numero = input.nextFloat();
+		return numero;
+	}
+
+}

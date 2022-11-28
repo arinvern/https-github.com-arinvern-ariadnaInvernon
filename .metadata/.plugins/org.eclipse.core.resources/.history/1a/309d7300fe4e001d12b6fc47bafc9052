@@ -1,0 +1,80 @@
+//Aquesta classe tindrà com a atributs la marca, el model, el processador, la quantitat de memòria RAM i la capacitat del disc dur.
+public class Ordinador {
+
+	private String marca;
+	private String model;
+	private String procesador;
+	private int memoria;
+	private int disc;
+
+	// constructores
+
+	public Ordinador(String marca, String model) {
+
+		this.marca = marca;
+		this.model = model;
+		procesador = "i3";
+		memoria = 8;
+		disc = 256;
+
+	}
+
+	public Ordinador(String marca, String model, String procesador, int memoria, int disc) {
+
+		this.marca = marca;
+		this.model = model;
+		this.procesador = procesador;
+		this.memoria = memoria;
+		this.disc = disc;
+
+	}
+
+	// Getters
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public String getProcesador() {
+		return procesador;
+	}
+
+	public int getMemoria() {
+		return memoria;
+	}
+
+	public int getDisc() {
+		return disc;
+	}
+
+	// Setters
+
+	public void setProcesador(String procesador) {
+		this.procesador = procesador;
+	}
+
+	public void setMemoria(int memoria) {
+		this.memoria = memoria;
+	}
+
+	public void setDisc(int disc) {
+		this.disc = disc;
+	}
+
+	// metodos de clase
+
+	public String ejecutando(String programa) {
+		String resultat = "";
+		resultat = "En aquests moments s'està executant: " + programa;
+		return resultat;
+	}
+
+	public String toString() {
+		return "Ordinador de marca: " + marca + ", model: " + model + ", procesador: " + procesador + ", memòria: "
+				+ memoria + " i disc: " + disc;
+	}
+}

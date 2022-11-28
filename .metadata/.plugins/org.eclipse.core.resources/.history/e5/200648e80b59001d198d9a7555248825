@@ -1,0 +1,188 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+	public static ArrayList<Edificio> listaEdificios = new ArrayList<Edificio>();
+
+	public static void main(String[] args) {
+
+		int numMenu = 0;
+
+		do {
+
+			numMenu = demanaNum(
+					"Escoge una opción del menú: \n\n1.Alta edificio \n2.Mostrar edificio \n3.Eliminar edificio \n0.Finalizar programa ");
+
+			switch (numMenu) {
+
+			case 0:
+				System.out.println("Finalizando el programa");
+				break;
+
+			case 1:// alta edificio
+
+				altaEdificio();
+
+				break;
+
+			case 2:// mostrar edificio
+
+				break;
+
+			case 3:// eliminar edificio
+
+			default:
+				System.out.println("error, no has seleccionado ninguna opción del menú");
+			}
+
+		} while (numMenu != 0);
+
+	}
+
+	static int demanaNum(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		int numero = input.nextInt();
+		return numero;
+	}
+
+	static float demanaFloat(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		float numero = input.nextInt();
+		return numero;
+	}
+
+	static String demanaString(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		String text = input.nextLine();
+		return text;
+	}
+
+	static void altaEdificio() {
+
+		int numMenu = 0;
+
+		do {
+
+			numMenu = demanaNum("¿Que tipo de edificio quieres dar de alta?: \n1.Hotel\n2.Hospital\n3.Cine");
+
+			switch (numMenu) {
+
+			case 0:
+
+				System.out.println("Volver al menú principal");
+				break;
+
+			case 1:// alta hotel
+
+				addHotel();
+				break;
+
+			case 2:// alta hospital
+
+				addHospital();
+				break;
+
+			case 3:// alta cine
+
+				addCine();
+				break;
+
+			default:
+				System.out.println("error, no has seleccionado ninguna opción del menú");
+			}
+
+		} while (numMenu != 0);
+	}
+
+	static void addHotel() {
+
+		String nombre = demanaString("Nombre del hotel:");
+		int numPlantas = demanaNum("Número de plantas:");
+		float superficie = demanaFloat("Superfície (m2):");
+		int numHabitaciones = demanaNum("Número de habitaciones:");
+
+		int indiceCliente = buscarIndiceEdificio(nombre);
+
+		if (indiceCliente == -1) {
+
+			Hotel hotel = new Hotel(nombre, numPlantas, superficie, numHabitaciones);
+
+			listaEdificios.add(hotel);
+
+		} else {
+
+			System.out.println("Error. Edificio repetido.");
+
+		}
+
+	}
+
+	static void addHospital() {
+
+		String nombre = demanaString("Nombre del hotel:");
+		int numPlantas = demanaNum("Número de plantas:");
+		float superficie = demanaFloat("Superfície (m2):");
+		int numEnfermos = demanaNum("Número de enfermos:");
+
+		int indiceCliente = buscarIndiceEdificio(nombre);
+
+		if (indiceCliente == -1) {
+
+			Hospital hospital = new Hospital(nombre, numPlantas, superficie, numEnfermos);
+
+			listaEdificios.add(hospital);
+
+		} else {
+
+			System.out.println("Error. Edificio repetido.");
+
+		}
+
+	}
+
+	static void addCine() {
+
+		String nombre = demanaString("Nombre del hotel:");
+		int numPlantas = demanaNum("Número de plantas:");
+		float superficie = demanaFloat("Superfície (m2):");
+		int aforoMaximo = demanaNum("Máximo aforo:");
+
+		int indiceCliente = buscarIndiceEdificio(nombre);
+
+		if (indiceCliente == -1) {
+
+			Cine cine = new Cine(nombre, numPlantas, superficie, aforoMaximo);
+
+			listaEdificios.add(cine);
+
+		} else {
+
+			System.out.println("Error. Edificio repetido.");
+
+		}
+
+	}
+
+	public static int buscarIndiceEdificio(String nombre) { // aquí o en clase Edificio?
+
+		int indiceCliente = 0;
+		int i = -1;
+
+		do {
+
+			if (nombre.equalsIgnoreCase(nombre)) {
+
+				indiceCliente = i;
+			}
+			i++;
+
+		} while (!nombre.equalsIgnoreCase(listaEdificios.get(indiceCliente).getNombre())
+				&& i < listaEdificios.size() - 1);
+
+		return indiceCliente;
+	}
+
+}

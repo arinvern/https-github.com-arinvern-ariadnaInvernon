@@ -1,0 +1,271 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+	public static ArrayList<Edificio> listaEdificios = new ArrayList<Edificio>();
+
+	public static void main(String[] args) {
+
+		int numMenu = 0;
+
+		do {
+
+			numMenu = demanaNum(
+					"Escoge una opción del menú: \n\n1.Alta edificio \n2.Mostrar edificio \n3.Eliminar edificio \n0.Finalizar programa ");
+
+			switch (numMenu) {
+
+			case 0:
+				System.out.println("Finalizando el programa");
+				break;
+
+			case 1:// alta edificio
+
+				altaEdificio();
+
+				break;
+
+			case 2:// mostrar edificio
+				System.out.println("¿Que edificio quieres mostrar?");
+				printLista();
+				String nombre = demanaString("");
+				int indiceLista = buscarIndiceEdificio(nombre);
+
+				mostrarEdificios(indiceLista);
+
+				;
+
+				break;
+
+			case 3:// eliminar edificio
+
+				nombre = demanaString("Introduce el nombre del edificio que quiera eliminar.");
+				eliminarEdificio(nombre);
+
+				break;
+
+			default:
+				System.out.println("error, no has seleccionado ninguna opción del menú");
+			}
+
+		} while (numMenu != 0);
+
+	}
+
+	public static void mostrarEdificios(int indiceLista) {
+		if (listaEdificios.get(indiceLista) instanceof Hotel) {
+
+			
+			Hotel hotel = (Hotel) listaEdificios.get(indiceLista);
+			
+			hotel.limpiar();
+			hotel.servicioHabitaciones();
+			hotel.calcularCosteVigilancia();
+
+		} else if (listaEdificios.get(indiceLista) instanceof Hospital) {
+
+			Hospital hospital = (Hospital) listaEdificios.get(indiceLista);
+
+			hospital.limpiar();
+			hospital.repartirComida();
+			hospital.calcularCosteVigilancia();
+
+		} else {
+
+			Cine cine = (Cine) listaEdificios.get(indiceLista);
+			
+			int numAsistentes = demanaNum("Indica el número de asistentes en la sesión");
+			float precioEntrada = demanaFloat("Indica el precio de la entrada");
+
+			cine.limpiar();
+			cine.proyectarSesion(numAsistentes, precioEntrada);
+			cine.calcularCosteVigilancia();
+		}
+	}
+
+	static int demanaNum(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		int numero = input.nextInt();
+		return numero;
+	}
+
+	static float demanaFloat(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		float numero = input.nextFloat();
+		return numero;
+	}
+
+	static String demanaString(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		String text = input.nextLine();
+		return text;
+	}
+
+	static void altaEdificio() {
+
+		int numMenu = 0;
+
+		do {
+
+			numMenu = demanaNum(
+					"¿Que tipo de edificio quieres dar de alta?: \n1.Hotel\n2.Hospital\n3.Cine\n0.Volver al menú principal");
+
+			switch (numMenu) {
+
+			case 0:
+
+				System.out.println("Volver al menú principal");
+				break;
+
+			case 1:// alta hotel
+
+				addHotel();
+				break;
+
+			case 2:// alta hospital
+
+				addHospital();
+				break;
+
+			case 3:// alta cine
+
+				addCine();
+				break;
+
+			default:
+				System.out.println("error, no has seleccionado ninguna opción del menú");
+			}
+
+		} while (numMenu != 0);
+	}
+
+	static void addHotel() {
+
+		String nombre = demanaString("Nombre del hotel:");
+
+		int indiceCliente = buscarIndiceEdificio(nombre);
+
+		if (indiceCliente == -1) {
+
+			int numPlantas = demanaNum("Número de plantas:");
+			float superficie = demanaFloat("Superfície (m2):");
+			int numHabitaciones = demanaNum("Número de habitaciones:");
+
+			Hotel hotel = new Hotel(nombre, numPlantas, superficie, numHabitaciones);
+
+			listaEdificios.add(hotel);
+
+		} else {
+
+			System.out.println("Error. Edificio repetido.");
+
+		}
+
+	}
+
+	static void addHospital() {
+
+		String nombre = demanaString("Nombre del hospital:");
+
+		int indiceCliente = buscarIndiceEdificio(nombre);
+
+		if (indiceCliente == -1) {
+
+			int numPlantas = demanaNum("Número de plantas:");
+			float superficie = demanaFloat("Superfície (m2):");
+			int numEnfermos = demanaNum("Número de enfermos:");
+
+			Hospital hospital = new Hospital(nombre, numPlantas, superficie, numEnfermos);
+
+			listaEdificios.add(hospital);
+
+		} else {
+
+			System.out.println("Error. Edificio repetido.");
+
+		}
+
+	}
+
+	static void addCine() {
+
+		String nombre = demanaString("Nombre del cine:");
+
+		int indiceCliente = buscarIndiceEdificio(nombre);
+
+		if (indiceCliente == -1) {
+
+			int numPlantas = demanaNum("Número de plantas:");
+			float superficie = demanaFloat("Superfície (m2):");
+			int aforoMaximo = demanaNum("Máximo aforo:");
+
+			Cine cine = new Cine(nombre, numPlantas, superficie, aforoMaximo);
+
+			listaEdificios.add(cine);
+
+		} else {
+
+			System.out.println("Error. Edificio repetido.");
+
+		}
+
+	}
+
+	public static int buscarIndiceEdificio(String nombre) { // aquí o en clase Edificio?
+
+		int indiceCliente = 0;
+		int i = -1;
+
+		if (listaEdificios == null || listaEdificios.isEmpty()) {
+
+			indiceCliente = -1;
+		} else {
+
+			do {
+				i++;
+				if (nombre.equalsIgnoreCase(nombre)) {
+
+					indiceCliente = i;
+
+				}
+
+			} while (!nombre.equalsIgnoreCase(listaEdificios.get(indiceCliente).getNombre())
+					&& i < listaEdificios.size());
+		}
+
+		return indiceCliente;
+	}
+
+	static void eliminarEdificio(String nombre) {
+
+		int indiceEdificio = buscarIndiceEdificio(nombre);
+
+		if (indiceEdificio != -1) {
+
+			listaEdificios.remove(indiceEdificio);
+			System.out.println("El edificio ha sido eliminado.");
+
+		} else {
+			System.out.println("Error. Ese edificio no se encuentra en la base de datos.");
+		}
+
+	}
+
+	static void printLista() {
+
+		if (listaEdificios == null || listaEdificios.isEmpty()) {
+			System.out.println("Error. La lista está vacia.");
+		} else {
+
+			for (int index = 0; index < listaEdificios.size(); index++) {
+
+				System.out.println(listaEdificios.get(index).getNombre());
+			}
+		}
+
+	}
+
+}

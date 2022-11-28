@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		int numJugadores = Tools.demanaInt("Introduce el número de jugadores");
+		Revolver revolver = crearRevolver();
+		ArrayList<Jugador> listaJugadores = crearListaJugadores(numJugadores);
+		Juego juego = new Juego(revolver, listaJugadores);
+		System.out.println(revolver);
+
+		juego.ronda();
+
+	}
+
+	public static Revolver crearRevolver() {
+		Revolver revolver = new Revolver();
+
+		return revolver;
+	}
+
+	
+
+	public static ArrayList<Jugador> crearListaJugadores(int numJugadores) {
+
+		ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>();
+
+		if (numJugadores < 2) {
+			numJugadores = 2;
+		}
+		if (numJugadores > 6) {
+			numJugadores = 6;
+		}
+
+		for (int i = 0; i < numJugadores; i++) {
+			System.out.println("Datos jugador " + (i + 1));
+			Jugador jugador = crearJugador();
+			listaJugadores.add(jugador);
+
+		}
+
+		return listaJugadores;
+	}
+	
+	public static Jugador crearJugador() {
+
+		String nombre = Tools.demanaString("Introduce tu nombre: ");
+		Jugador jugador = new Jugador(nombre);
+
+		return jugador;
+	}
+
+}

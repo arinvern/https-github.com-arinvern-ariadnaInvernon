@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+
+public class AlumnoNacional extends Alumno {
+	
+	private String DNI;
+
+	public AlumnoNacional(String nombre, ArrayList<Float> listaNotas, int id, String DNI) {
+		super(nombre, listaNotas, id);
+		this.DNI=DNI;
+	
+	}
+	
+	
+
+}

@@ -1,0 +1,45 @@
+
+public class App {
+
+	public static void main(String[] args) {
+
+		int coordenadaX1 = Tools.demanaInt("Introduce la coordenada X del primer circulo");
+		int coordenadaY1 = Tools.demanaInt("Introduce la coordenada Y del primer circulo");
+		int radio1 = Tools.demanaInt("Introduce el radio del primer circulo");
+
+		int coordenadaX2 = Tools.demanaInt("Introduce la coordenada X del segundo circulo");
+		int coordenadaY2 = Tools.demanaInt("Introduce la coordenada Y del Segundo circulo");
+		int radio2 = Tools.demanaInt("Introduce el radio del segundo circulo");
+
+		Punto punto1 = crearPunto(coordenadaX1, coordenadaY1);
+		Punto punto2 = crearPunto(coordenadaX2, coordenadaY2);
+
+		Circulo circulo1 = crearCirculo(radio1, punto1);
+		Circulo circulo2 = crearCirculo(radio2, punto2);
+		
+		
+		
+		
+		double distancia=circulo1.distanciaCentros(circulo2);
+		circulo1.equals(circulo2);
+		circulo1.sonConcentricos(circulo2);
+		circulo1.tienenRadioIgual(circulo2);
+		circulo1.sonTangentes(circulo2);
+		circulo1.sonSecantes(circulo2);
+		circulo1.noTocan(circulo2);
+			
+	}
+
+	public static Circulo crearCirculo(int radio1, Punto punto1) {
+		Circulo circulo = new Circulo(radio1, punto1);
+
+		return circulo;
+	}
+
+	public static Punto crearPunto(int coordenadaX1, int coordenadaY1) {
+		Punto punto = new Punto(coordenadaX1, coordenadaY1);
+
+		return punto;
+	}
+
+}

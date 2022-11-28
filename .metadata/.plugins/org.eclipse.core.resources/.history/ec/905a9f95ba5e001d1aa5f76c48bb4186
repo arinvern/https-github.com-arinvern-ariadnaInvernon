@@ -1,0 +1,19 @@
+
+public class Jugador {
+	
+	static int nextId = 1;
+	private int id;
+	private String nombre;
+	private String nickname;
+	private boolean viu;
+	
+	public Jugador (String nombre, String nickname) {
+
+		this.nombre = nombre;
+		this.nickname = nickname;
+		viu=true;
+		id= nextId;
+		nextId++;
+		
+	}
+}

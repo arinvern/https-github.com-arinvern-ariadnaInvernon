@@ -1,0 +1,21 @@
+
+public class Punto {
+
+	// atributos
+	private int posicionX;
+	private int posicionY;
+
+	// constructores
+
+	public Punto(int posicionX, int posicionY) {
+
+		this.posicionX = posicionX;
+		this.posicionY = posicionY;
+
+	}
+
+	// getters y setters
+
+	// métodos de clase
+
+}

@@ -1,0 +1,34 @@
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Ordinador ordinador1 = new Ordinador("Acer", "Aspire C24-963");
+		Ordinador ordinador2 = new Ordinador("Lenovo", "IdeaPad 3 15ITL6", "i5", 8, 512);
+		
+		
+		System.out.println(ordinador2.ejecutando("Eclipse"));
+		
+		System.out.println(ordinador2.getMarca());
+		System.out.println(ordinador2.getModel());
+		System.out.println(ordinador2.getProcesador());
+		System.out.println(ordinador2.getMemoria());
+		System.out.println(ordinador2.getDisc());
+		
+		
+		
+		ordinador2.setDisc(256);
+		System.out.println(ordinador2.getDisc());
+		
+		
+		ordinador1.setMemoria(16);
+		System.out.println(ordinador2.getMemoria());
+		
+		ordinador1.setProcesador("i8");
+		System.out.println(ordinador2.getProcesador());
+		
+
+		
+	}
+
+}

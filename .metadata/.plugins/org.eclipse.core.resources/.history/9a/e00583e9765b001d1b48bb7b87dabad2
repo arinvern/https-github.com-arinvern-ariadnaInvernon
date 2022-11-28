@@ -1,0 +1,49 @@
+
+public class Hospital extends Edificio {
+
+	// atributos
+	private int numEnfermos;
+
+	// constructores
+	
+	public Hospital(String nombre, int numPlantas, float superficie, int numEnfermos) {
+		super(nombre, numPlantas, superficie);
+		this.numEnfermos = numEnfermos;
+	}	
+
+	// getters y setters
+
+	public int getNumEnfermos() {
+		return numEnfermos;
+	}
+
+	
+
+	
+
+
+
+	public void setNumEnfermos(int numEnfermos) {
+		this.numEnfermos = numEnfermos;
+	}
+
+	// métodos de clase
+
+	public void repartirComida() {
+
+		int racionesComida = numEnfermos * 3;
+		System.out.println("Se están repartiendo " + racionesComida + " raciones.");
+
+	}
+	@Override
+	public void calcularCosteVigilancia() {
+
+		float vigilantesEdificio = superficie/1000;
+		float costeVigilancia = vigilantesEdificio*1300;
+		
+		System.out.println("Se necesitan " + vigilantesEdificio + 
+				" vigilantes para este edificio, con un coste de "+ costeVigilancia+ "€");
+		
+	}
+
+}

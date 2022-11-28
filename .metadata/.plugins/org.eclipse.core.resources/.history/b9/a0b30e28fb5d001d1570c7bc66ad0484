@@ -1,0 +1,37 @@
+
+public class Punto {
+
+	// atributos
+	private int posicionX;
+	private int posicionY;
+
+	// constructores
+
+	public Punto(int posicionX, int posicionY) {
+
+		this.posicionX = posicionX;
+		this.posicionY = posicionY;
+
+	}
+
+	// getters
+
+	public int getPosicionX() {
+		return posicionX;
+	}
+
+	public int getPosicionY() {
+		return posicionY;
+	}
+
+	public boolean Equals(Punto punto) {
+		boolean igual = false;
+		if (posicionX == punto.getPosicionX() && posicionY == punto.getPosicionY()) {
+			igual = true;
+			;
+		}
+		return igual;
+
+	}
+
+}

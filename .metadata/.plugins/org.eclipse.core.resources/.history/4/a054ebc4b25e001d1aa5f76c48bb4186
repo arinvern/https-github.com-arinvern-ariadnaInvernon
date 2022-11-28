@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Tools {
+
+	public static int demanaInt (String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		int numero = input.nextInt();
+		return numero;
+	}
+	
+	
+	
+
+	
+}

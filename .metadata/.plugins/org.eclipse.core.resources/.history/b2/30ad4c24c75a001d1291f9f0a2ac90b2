@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Cliente {
+
+	private String nombre;
+	private String apellido;
+	private ArrayList<Cuenta> cuentas;
+
+	// constructor
+	public Cliente(String nombre, String apellido, ArrayList<Cuenta> cuentas) {
+
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.cuentas = cuentas;
+
+	}
+
+	// getters
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public ArrayList<Cuenta> getCuentas() {
+		return cuentas;
+	}
+
+	// métodos de clase
+
+	public void crearCuenta(int numCuenta) {
+
+		Cuenta cuenta = new Cuenta(numCuenta);
+		cuentas.add(cuenta);
+
+	}
+
+	public int buscarIndexCompte(int numCuenta) {
+
+		int index = -1;
+		int i = -1;
+		
+
+		do {
+			i++;
+			if (numCuenta==(cuentas.get(i).getNumCuenta())) {
+
+				index = i;
+
+			}
+
+		} while (numCuenta!=(cuentas.get(i).getNumCuenta()) && i < cuentas.size()-1);
+		
+		return index;
+
+	}
+	
+	public void printComptes() {
+	
+
+			if (cuentas == null || cuentas.isEmpty()) {
+				System.out.println("Error. La llista està buida.");
+			} else {
+
+				for (int index = 0; index < cuentas.size(); index++) {
+
+					System.out.println(cuentas.get(index).getNumCuenta());
+				}
+			}
+
+	}
+	
+	
+	public String toString() {
+		return "Cliente [nombre=" + nombre + ", apellido=" + apellido + ", cuentas=" + cuentas + "]";
+	}
+
+}

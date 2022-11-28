@@ -1,0 +1,61 @@
+
+public class Hotel {
+
+	private String nom;
+	private int numHabitacions;
+	private int numPlantes;
+	private float superficie;
+
+	// constructores
+
+	public Hotel(String nom, int numHabitacions, int numPlantes, float superficie) {
+
+		this.nom = nom;
+		this.numHabitacions = numHabitacions;
+		this.numPlantes = numPlantes;
+		this.superficie = superficie;
+
+	}
+	// getters y setters
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public int getNumHabitacions() {
+		return numHabitacions;
+	}
+
+	public void setNumHabitacions(int numHabitacions) {
+		this.numHabitacions = numHabitacions;
+	}
+
+	public int getNumPlantes() {
+		return numPlantes;
+	}
+
+	public void setNumPlantes(int numPlantes) {
+		this.numPlantes = numPlantes;
+	}
+
+	public float getSuperficie() {
+		return superficie;
+	}
+
+	public void setSuperficie(float superficie) {
+		this.superficie = superficie;
+	}
+
+	// métodos de clase
+
+	public Float calcularManteniment(int numHabitacions) {
+
+		float costManteniment = (numHabitacions / (float) 20) * 1500;
+
+		return costManteniment;
+	}
+}

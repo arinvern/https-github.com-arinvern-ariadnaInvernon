@@ -1,0 +1,52 @@
+
+public abstract class Edificio {
+	
+	
+	//atributos
+	protected String nombre;
+	
+	public Edificio(String nombre, int numPlantas, float superficie) {
+		this.nombre = nombre;
+		this.numPlantas = numPlantas;
+		this.superficie = superficie;
+	}
+
+	protected int numPlantas;
+	protected float superficie;
+	
+	//getters
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public int getNumPlantas() {
+		return numPlantas;
+	}
+	public float getSuperficie() {
+		return superficie;
+	}
+	
+	// métodos de clase 
+	
+	public void limpiar() {
+
+		float minutosLimpieza = superficie/5;
+		
+		if (numPlantas>1) {
+			minutosLimpieza+=0.5;
+		}
+		
+		float horasLimpieza = minutosLimpieza/60;
+		
+		float costeMensual = minutosLimpieza * 30;
+		
+		System.out.println("El hotel tarda en limpiarse: "+ horasLimpieza+ " horas.");
+		System.out.println("El coste mensual en limpieza es:  "+ costeMensual+ " €.");
+	
+	}
+	
+	public abstract void calcularCosteVigilancia();
+	
+
+	
+}

@@ -1,0 +1,27 @@
+
+public class Revolver {
+
+	private int posicionActual;
+	private int posicionBala;
+
+	public Revolver() {
+
+		posicionActual = (int)(Math.random()*6+1);
+		posicionBala = (int)(Math.random()*6+1);
+	}
+	
+	public boolean disparar() {
+		
+		boolean disparo = false;
+		if(posicionActual==posicionBala) {
+			disparo=true;
+		}
+		return disparo;
+		
+	}
+	
+	
+	- seguentBala(): canvia a la següent posició del tambor.
+	- informa(): mostra informació del revòlver (posició actual i on està la bala)
+
+}

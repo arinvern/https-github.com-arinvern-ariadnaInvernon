@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+
+public class AlumnoErasmus extends Alumno {
+	
+	private String pasaporte;
+	
+	public AlumnoErasmus(String nombre, ArrayList<Float> listaNotas, int id, String pasaporte) {
+		super(nombre, listaNotas, id);
+		this.pasaporte=pasaporte;
+		
+	}
+
+	
+}

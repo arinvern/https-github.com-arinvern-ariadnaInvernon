@@ -1,0 +1,23 @@
+
+
+public class App {
+
+	public static void main(String[] args) {
+		
+	pedirDatos();
+		
+		
+
+	}
+
+	public static void pedirDatos() {
+		int	coordenadaX1= Tools.demanaInt("Introduce la coordenada X del primer circulo");
+		int	coordenadaY1= Tools.demanaInt("Introduce la coordenada Y del primer circulo");
+		int	radio1= Tools.demanaInt("Introduce el radio del primer circulo");
+
+		int	coordenadaX2= Tools.demanaInt("Introduce la coordenada X del segundo circulo");
+		int	coordenadaY2= Tools.demanaInt("Introduce la coordenada Y del Segundo circulo");
+		int	radio2= Tools.demanaInt("Introduce el radio del segundo circulo");
+	}
+
+}

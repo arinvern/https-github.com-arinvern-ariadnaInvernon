@@ -1,0 +1,17 @@
+
+public class App {
+
+	public static void main(String[] args) {
+
+		int numJugadores = Tools.demanaInt("Introduce el número de jugadores");
+		Revolver revolver = crearRevolver();
+
+	}
+	
+	public static Revolver crearRevolver() {
+		Revolver revolver = new Revolver();
+
+		return revolver;
+	}
+
+}

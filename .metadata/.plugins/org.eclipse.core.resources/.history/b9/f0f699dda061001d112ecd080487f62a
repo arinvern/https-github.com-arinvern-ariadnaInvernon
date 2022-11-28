@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		ArrayList<Alumno> listaAlumnos = new ArrayList<Alumno>();
+		
+		Curso curso = crearCurso("Fonaments de la programació", listaAlumnos);
+		
+		Alumno alumno1 = crearAlumnoNacional("Marc", 1, "12345678A");
+		Alumno alumno2 = crearAlumnoNacional("Laia", 2, "98765432B");
+		Alumno alumno3 = crearAlumnoErasmus("Peter", 3, "ABC123456");
+		Alumno alumno4 = crearAlumnoErasmus("Kate", 4, "DEF654321");
+		
+		curso.insertarAlumno(alumno1);
+		curso.insertarAlumno(alumno2);
+		curso.insertarAlumno(alumno3);
+		curso.insertarAlumno(alumno4);
+		
+		curso.mostrarNombreAlumnos();
+		
+		
+
+	}
+
+	public static Curso crearCurso(String nombre, ArrayList<Alumno> listaAlumnos) {
+
+		Curso curso = new Curso(nombre, listaAlumnos);
+
+		return curso;
+	}
+
+	public static AlumnoErasmus crearAlumnoErasmus(String nombre, int id, String pasaporte) {
+
+		AlumnoErasmus alumnoErasmus = new AlumnoErasmus(nombre, id, pasaporte);
+
+		return alumnoErasmus;
+	}
+
+	public static AlumnoNacional crearAlumnoNacional(String nombre, int id, String DNI) {
+
+		AlumnoNacional alumnoNacional = new AlumnoNacional(nombre, id, DNI);
+
+		return alumnoNacional;
+	}
+
+}

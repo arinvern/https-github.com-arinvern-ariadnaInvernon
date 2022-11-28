@@ -1,0 +1,53 @@
+
+public class Hotel extends Edificio {
+
+	// atributos
+	private int numHabitaciones;
+
+	// constructores
+
+	public Hotel (String nombre, int numPlantas, float superficie, int numHabitaciones) {
+		
+		this.nombre=nombre;
+		this.numPlantas=numPlantas;
+		this.superficie=superficie;
+		this.numHabitaciones=numHabitaciones;;
+		
+	}
+	
+public Hotel () {
+		
+		nombre=" ";
+		numPlantas= 0;
+		superficie= 0;
+		numHabitaciones= 0;
+		
+	}
+	
+	// getters setters
+	
+	
+
+	// métodos de clase
+
+	public void servicioHabitaciones() {
+
+		float personasServicio = numHabitaciones / 20;
+		float sueldoTotal = personasServicio / 1000;
+
+		System.out.println("Se necesitan " + personasServicio + " personas para el servicio del hotel.");
+		System.out.println("El coste total en servicio son " + sueldoTotal + "€ al mes.");
+
+	}
+
+	public void calcularCosteVigilancia() {
+		
+		float vigilantesEdificio = superficie/1000;
+		float costeVigilancia = vigilantesEdificio*1800;
+		
+		System.out.println("Se necesitan " + vigilantesEdificio + 
+				" vigilantes para este edificio, con un coste de "+ costeVigilancia+ "€");
+
+	}
+
+}

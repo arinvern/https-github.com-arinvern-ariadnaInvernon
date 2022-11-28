@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+
+public class AlumnoNacional extends Alumno {
+
+	private String DNI;
+
+	public AlumnoNacional(String nombre, int id, String DNI) {
+		super(nombre, id);
+		this.DNI=DNI;
+	}
+
+	public String getDNI() {
+		return DNI;
+	}
+
+	public void setDNI(String dNI) {
+		DNI = dNI;
+	}
+
+	public  AlumnoNacional crearAlumnoNacional () {
+		AlumnoNacional alumnoNacional = new AlumnoNacional(nombre, id, DNI);
+
+		return alumnoNacional;
+	}
+	
+	public float calcularNotaFinal() {
+
+		float notaFinal = 0;
+		for (int i = 0; i < listaNotas.size(); i++) {
+
+			float nota = listaNotas.get(i);
+			if (nota >= 5) {
+
+				nota = (float) nota / 2;
+
+			}
+			
+			notaFinal+=nota;
+
+		}
+		
+		notaFinal=notaFinal/listaNotas.size();
+		return notaFinal;
+
+	}
+
+}

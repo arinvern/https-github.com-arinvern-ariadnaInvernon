@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class App {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);  
+        
+        System.out.println("Introdueix un numero sencer");
+        int num1 = input.nextInt();
+                     
+        System.out.println("Introdueix un altre numero sencer");
+        int num2 = input.nextInt();
+        
+        int suma = num1 + num2;
+        int resta = num1 - num2;
+        int multiplicacio = num1 * num 2;
+        float divisio = num1 / num2;
+        
+        System.out.println("El resultat de la suma és:" + suma);
+        System.out.println("El resultat de la resta és:" + resta);
+        System.out.println("El resultat de la multiplicació és:" + multiplicacio);
+        System.out.println("El resultat de la divisióa és:" + divisio);
+        
+    }
+}

@@ -1,0 +1,44 @@
+public class Cuenta {
+
+	private int numCuenta;
+	private int saldo;
+
+	// constructores
+
+	public Cuenta(int numCuenta) {
+
+		this.numCuenta = numCuenta;
+		saldo = 0;
+
+	}
+
+	// getters
+
+	public int getNumCuenta() {
+		return numCuenta;
+	}
+
+	public int getSaldo() {
+		return saldo;
+	}
+
+	// métodos de clase
+
+	public int ingresar(int cantidad) {
+
+		saldo += cantidad;
+
+		return saldo;
+
+	}
+
+	public int retirar(int cantidad) {
+
+		saldo += cantidad;
+		return saldo;
+
+	}
+	
+	
+
+}

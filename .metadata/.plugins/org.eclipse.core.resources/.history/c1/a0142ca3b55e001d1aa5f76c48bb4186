@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		int numJugadores = Tools.demanaInt("Introduce el número de jugadores");
+		Revolver revolver = crearRevolver();
+		
+		
+		//ArrayList<Jugador> listaJugadores;
+
+	}
+	
+	public static Revolver crearRevolver() {
+		Revolver revolver = new Revolver();
+
+		return revolver;
+	}
+	
+	public static Jugador crearJugador() {
+		
+		String nombre = Tools.demanaString("Introduce tu nombre: ");
+		String nickname = Tools.demanaString("Introduce tu nickname: ");
+		Jugador jugador = new Jugador (nombre, nickname);
+		
+		return jugador;
+	}
+
+}

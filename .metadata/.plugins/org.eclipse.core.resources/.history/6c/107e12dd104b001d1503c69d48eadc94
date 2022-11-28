@@ -1,0 +1,47 @@
+//Donat un array de números, el programa ha de mostrar la suma de tots els nombres parells i la suma de tots els números imparells.
+import java.util.ArrayList;
+
+public class App {
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> llistaNumeros = new ArrayList();
+		
+		llistaNumeros.add(1);
+		llistaNumeros.add(2);
+		llistaNumeros.add(3);
+		llistaNumeros.add(6);
+		llistaNumeros.add(7);
+		llistaNumeros.add(8);
+		llistaNumeros.add(9);
+		llistaNumeros.add(10);
+		
+		
+		int sumaParells=0;
+		int sumaImparells=0;
+		
+		for (int i=0; i< llistaNumeros.size(); i++) {
+			
+			if (esParell(llistaNumeros.get(i))){
+				sumaParells+=llistaNumeros.get(i);
+			
+			}else {
+				sumaImparells+=llistaNumeros.get(i);
+				
+			}
+		}
+		
+		System.out.println("La suma dels nombres parells de la llista és " + sumaParells);
+		System.out.println("La suma dels nombres imparells de la llista és " + sumaImparells);
+	}
+
+	static boolean esParell(int num) {
+
+		boolean parell = false;
+		if (num % 2 == 0) {
+
+			parell = true;
+
+		}
+		return parell;
+	}
+}

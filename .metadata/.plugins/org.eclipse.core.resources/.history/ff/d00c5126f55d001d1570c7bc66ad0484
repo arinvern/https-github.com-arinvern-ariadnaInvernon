@@ -1,0 +1,94 @@
+
+public class Circulo {
+
+	// atributos
+	private int radio;
+	private Punto centro;
+
+	// constructores
+
+	public Circulo(int radio, Punto centro) {
+
+		this.radio = radio;
+		this.centro = centro;
+
+		// getters y setters
+
+	}
+
+	public int getRadio() {
+		return radio;
+	}
+
+	public Punto getCentro() {
+		return centro;
+	}
+
+	public void setRadio(int radio) {
+		this.radio = radio;
+	}
+
+	public void setCentro(Punto centro) {
+		this.centro = centro;
+	}
+
+	// métodos de clase
+
+	public double distanciaCentros(Circulo circulo) {
+
+		int x1 = centro.getPosicionX();
+		int y1 = centro.getPosicionY();
+		int x2 = circulo.getCentro().getPosicionX();
+		int y2 = circulo.getCentro().getPosicionY();
+
+		double distancia = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+
+		return distancia;
+
+	}
+
+	public boolean equals(Circulo circulo) {
+
+		boolean equals = false;
+		if (circulo.getCentro() == centro && circulo.getRadio() == radio) {
+			equals = true;
+
+		}
+
+		return equals;
+
+	}
+	
+	public boolean sonConcentricos(Circulo circulo) {
+
+		boolean concentricos = false;
+		if (circulo.getCentro() == centro) {
+			concentricos = true;
+
+		}
+
+		return concentricos;
+
+	}
+
+	public boolean tienenRadioIgual(Circulo circulo) {
+
+		boolean radioIgual = false;
+		if (circulo.getRadio() == radio) {
+			radioIgual = true;
+
+		}
+
+		return radioIgual;
+
+	}
+
+
+
+	// sonTangents(altreCercle)
+
+	// sonSecants(altreCercle)
+
+	// noEsToquen(altreCercle)
+
+}

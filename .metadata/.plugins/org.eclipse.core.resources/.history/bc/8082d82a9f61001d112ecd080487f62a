@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+
+public class AlumnoErasmus extends Alumno {
+
+	private String pasaporte;
+
+	public AlumnoErasmus(String nombre, ArrayList<Integer> listaNotas, int id, String pasaporte) {
+		super(nombre, listaNotas, id);
+		this.pasaporte = pasaporte;
+
+	}
+
+	public String getPasaporte() {
+		return pasaporte;
+	}
+
+	public void setPasaporte(String pasaporte) {
+		this.pasaporte = pasaporte;
+	}
+	
+
+
+	public float calcularNotaFinal() {
+
+		float notaFinal = 0;
+		for (int i = 0; i < listaNotas.size(); i++) {
+
+			float nota = listaNotas.get(i);
+			if (nota % 2 == 0) {
+
+				nota = (float) nota * 2;
+
+			} else {
+				nota = (float) nota / 2;
+			}
+
+			notaFinal += nota;
+
+		}
+
+		notaFinal = notaFinal / listaNotas.size();
+		return notaFinal;
+
+	}
+	
+	
+
+}

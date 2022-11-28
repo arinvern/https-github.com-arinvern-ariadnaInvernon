@@ -1,0 +1,84 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+
+public class Curso {
+
+	// atributos
+	private String nombre;
+	private ArrayList<Alumno> listaAlumnos;
+
+	// constructor
+	public Curso(String nombre) {
+		this.nombre = nombre;
+		listaAlumnos = new ArrayList<Alumno>();
+	}
+
+	// getters/setters
+	public String getNombre() {
+		return nombre;
+	}
+
+	public ArrayList<Alumno> getListaAlumnos() {
+		return listaAlumnos;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setListaAlumnos(ArrayList<Alumno> listaAlumnos) {
+		this.listaAlumnos = listaAlumnos;
+	}
+
+	// métodos de clase
+
+
+	
+	
+	public void insertarAlumno(Alumno alumno) {
+
+		
+		listaAlumnos.add(alumno);
+
+	}
+
+	public void eliminaAlumno(int id) {
+
+		int indiceAlumno= buscaAlumno(id);
+		listaAlumnos.remove(indiceAlumno);
+
+	}
+
+	public int buscaAlumno(int id) {
+
+		int indice = -1;
+		int i = 0;
+
+		while (id-1 != (listaAlumnos.get(i).getId()) && i < listaAlumnos.size()-1 ) {
+			
+			if (id == (listaAlumnos.get(i).getId())) {
+				i++;
+				indice = i;
+				
+			}
+
+		} 
+
+		return indice;
+
+	}
+	
+	public void mostrarNombreAlumnos() {
+		
+		Iterator<Alumno> itAlumnos = listaAlumnos.iterator();
+		
+		System.out.println("Lista alumnos: ");
+		while(itAlumnos.hasNext()){
+			  Alumno alumno = (Alumno)itAlumnos.next(); 
+			  System.out.println(alumno.getNombre());
+		}
+
+	}
+
+}

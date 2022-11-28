@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+
+public class App {
+
+	public static void main(String[] args) {
+
+	}
+	
+	
+	
+public  static Curso crearCurso (String nombre, ArrayList<Alumno> listaAlumnos ) {
+		
+		Curso curso = new Curso (nombre, listaAlumnos);
+
+		return curso;
+	}
+	
+
+	public static AlumnoErasmus crearAlumnoErasmus(String nombre, ArrayList<Integer> listaNotas, int id,
+			String pasaporte) {
+
+		AlumnoErasmus alumnoErasmus = new AlumnoErasmus(nombre, listaNotas, id, pasaporte);
+
+		return alumnoErasmus;
+	}
+
+	public static AlumnoNacional crearAlumnoNacional(String nombre, ArrayList<Integer> listaNotas, int id, String DNI) {
+
+		AlumnoNacional alumnoNacional = new AlumnoNacional(nombre, listaNotas, id, DNI);
+
+		return alumnoNacional;
+	}
+
+}

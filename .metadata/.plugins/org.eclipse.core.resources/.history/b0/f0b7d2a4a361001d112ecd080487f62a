@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		ArrayList<Alumno> listaAlumnos = new ArrayList<Alumno>();
+		
+		Curso curso = crearCurso("Fonaments de la programació");
+		
+		AlumnoNacional alumno1 = crearAlumnoNacional("Marc", 1, "12345678A");
+		AlumnoNacional alumno2 = crearAlumnoNacional("Laia", 2, "98765432B");
+		AlumnoErasmus alumno3 = crearAlumnoErasmus("Peter", 3, "ABC123456");
+		AlumnoErasmus alumno4 = crearAlumnoErasmus("Kate", 4, "DEF654321");
+		
+		curso.insertarAlumno(alumno1);
+		curso.insertarAlumno(alumno2);
+		curso.insertarAlumno(alumno3);
+		curso.insertarAlumno(alumno4);
+		
+		curso.mostrarNombreAlumnos();
+		
+				
+		alumno1.getListaNotas().add(1);
+		alumno1.getListaNotas().add(3);
+		alumno1.getListaNotas().add(5);
+		alumno1.getListaNotas().add(7);
+		alumno1.getListaNotas().add(9);
+		
+		alumno2.getListaNotas().add(2);
+		alumno2.getListaNotas().add(4);
+		alumno2.getListaNotas().add(6);
+		alumno2.getListaNotas().add(8);
+		alumno2.getListaNotas().add(10);
+		
+		alumno3.getListaNotas().add(1);
+		alumno3.getListaNotas().add(2);
+		alumno3.getListaNotas().add(5);
+		alumno3.getListaNotas().add(6);
+		alumno3.getListaNotas().add(9);
+		alumno3.getListaNotas().add(10);
+		
+		alumno4.getListaNotas().add(3);
+		alumno4.getListaNotas().add(4);
+		alumno4.getListaNotas().add(7);
+		alumno4.getListaNotas().add(8);
+		
+		System.out.println(alumno1.calcularNotaFinal());
+		alumno1.presentarse("DNI", alumno1.getDNI());
+		System.out.println(alumno2.calcularNotaFinal());
+		alumno2.presentarse("DNI", alumno2.getDNI());
+		System.out.println(alumno3.calcularNotaFinal());
+		alumno3.presentarse("pasaporte", alumno3.getPasaporte());
+		System.out.println(alumno4.calcularNotaFinal());
+		alumno4.presentarse("pasaporte", alumno4.getPasaporte());
+		
+
+	}
+
+	public static Curso crearCurso(String nombre) {
+
+		Curso curso = new Curso(nombre);
+
+		return curso;
+	}
+
+	public static AlumnoErasmus crearAlumnoErasmus(String nombre, int id, String pasaporte) {
+
+		AlumnoErasmus alumnoErasmus = new AlumnoErasmus(nombre, id, pasaporte);
+
+		return alumnoErasmus;
+	}
+
+	public static AlumnoNacional crearAlumnoNacional(String nombre, int id, String DNI) {
+
+		AlumnoNacional alumnoNacional = new AlumnoNacional(nombre, id, DNI);
+
+		return alumnoNacional;
+	}
+
+}

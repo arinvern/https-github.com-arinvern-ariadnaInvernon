@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+	
+		
+		
+	}
+	
+	public static Curso crearCurso(String Nombre, ArrayList<Alumno> listaAlumnos) {
+			Curso curso = new Curso(Nombre, listaAlumnos);
+
+			return curso;
+		}
+	
+	
+
+}

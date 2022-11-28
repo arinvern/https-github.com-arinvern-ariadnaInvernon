@@ -1,0 +1,14 @@
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Ordinador ordinador1 = new Ordinador("Acer", "Aspire C24-963");
+		Ordinador ordinador2 = new Ordinador("Lenovo", " IdeaPad 3 15ITL6", "i5", 8, 521);
+		
+		System.out.println(ordinador1.getMarca());
+		System.out.println(ordinador2.ejecutando("Eclipse"));
+
+	}
+
+}

@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+
+public abstract class Alumno {
+
+	protected String nombre;
+	protected int id;
+	protected ArrayList <Float> listaNotas;
+	
+	
+	public Alumno(String nombre, ArrayList<Float> listaNotas, int id) {
+
+		this.nombre = nombre;
+		this.listaNotas = listaNotas;
+		this.id = id;
+	}
+	
+}

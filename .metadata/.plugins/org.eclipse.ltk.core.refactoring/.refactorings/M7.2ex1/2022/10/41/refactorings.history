@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;public static void imprimir()&apos; from &apos;App.quadrat(...)&apos; to &apos;App&apos;&#x0D;&#x0A;- Original project: &apos;M7.2ex1&apos;&#x0D;&#x0A;- Method name: &apos;imprimir&apos;&#x0D;&#x0A;- Destination type: &apos;App&apos;&#x0D;&#x0A;- Declared visibility: &apos;public&apos;" comments="false" description="Extract method &apos;imprimir&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;{App.java" name="imprimir" replace="false" selection="518 21" stamp="1665418370183" version="1.0" visibility="1"/>
+</session>

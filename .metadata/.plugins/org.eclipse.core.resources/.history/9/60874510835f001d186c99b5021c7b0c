@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+
+public class Juego {
+
+	private ArrayList<Jugador> listaJugadores;
+	private Revolver revolver;
+
+	public Juego(Revolver revolver, ArrayList<Jugador> listaJugadores) {
+
+		this.revolver = revolver;
+		this.listaJugadores = listaJugadores;
+	}
+
+	public void ronda() {
+		int i = 0;
+		
+		do {
+			Jugador jugador = listaJugadores.get(i);
+			jugador.jugar(revolver);
+			
+			
+			System.out.println(
+					"El jugador " + listaJugadores.get(i).getNickname() + " se dispara, no ha muerto en esta ronda.");
+			revolver.siguienteBala();
+			
+			i++;
+
+		} while (i < listaJugadores.size() && listaJugadores.get(i).isViu());
+		
+
+	}
+
+}

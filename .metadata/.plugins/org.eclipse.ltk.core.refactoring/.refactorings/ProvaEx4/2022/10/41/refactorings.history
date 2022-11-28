@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;public static void printIndex(char lletraC, int indexC)&apos; from &apos;App.main(...)&apos; to &apos;App&apos;&#x0D;&#x0A;- Original project: &apos;ProvaEx4&apos;&#x0D;&#x0A;- Method name: &apos;printIndex&apos;&#x0D;&#x0A;- Destination type: &apos;App&apos;&#x0D;&#x0A;- Declared visibility: &apos;public&apos;" comments="false" description="Extract method &apos;printIndex&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;{App.java" name="printIndex" replace="false" selection="368 77" stamp="1665827181987" version="1.0" visibility="1"/>
+</session>

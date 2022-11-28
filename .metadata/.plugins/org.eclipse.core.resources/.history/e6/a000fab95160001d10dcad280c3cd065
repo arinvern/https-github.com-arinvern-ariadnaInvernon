@@ -1,0 +1,9 @@
+import java.util.ArrayList;
+
+public abstract class Alumno {
+
+	protected String nombre;
+	protected int id;
+	protected ArrayList <Float> listaNotas;
+	
+}

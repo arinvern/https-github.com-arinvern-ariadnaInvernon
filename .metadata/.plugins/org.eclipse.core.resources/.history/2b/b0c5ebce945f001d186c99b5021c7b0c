@@ -1,0 +1,57 @@
+
+public class Revolver {
+
+	private int posicionActual;
+	private int posicionBala;
+
+	//constructor
+	public Revolver() {
+
+		posicionActual = (int)(Math.random()*6+1);
+		posicionBala = (int)(Math.random()*6+1);
+	}
+	
+
+	//getters setters
+	public int getPosicionActual() {
+		return posicionActual;
+	}
+
+	public int getPosicionBala() {
+		return posicionBala;
+	}
+
+
+	
+	//métodos de clase
+	
+	public boolean disparar() {
+		
+		return (posicionActual==posicionBala)?true:false;
+		
+	}
+	public boolean dispararTernaria() {
+		
+		return (posicionActual==posicionBala)?true:false;
+	}
+	
+	public void siguienteBala() {
+		
+		
+		if (posicionActual<6&& posicionActual >=1) {
+			posicionActual ++;
+		} else {
+			posicionActual=1;
+		}
+		
+	}
+
+
+	@Override
+	public String toString() { //informa
+		return "Revolver [posicionActual=" + posicionActual + ", posicionBala=" + posicionBala + "]";
+	}
+	
+	
+
+}

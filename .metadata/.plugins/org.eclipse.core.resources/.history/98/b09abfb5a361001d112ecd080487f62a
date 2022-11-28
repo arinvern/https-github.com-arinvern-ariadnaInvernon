@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+
+public abstract class Alumno {
+
+	protected String nombre;
+	protected int id;
+	protected ArrayList<Integer> listaNotas;
+
+	public Alumno(String nombre, int id) {
+
+		this.nombre = nombre;
+		listaNotas = new ArrayList<Integer>();
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public ArrayList<Integer> getListaNotas() {
+		return listaNotas;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	// métodos de clase
+	public void insertarNota(int nota) {
+
+		listaNotas.add(nota);
+
+	}
+
+	public void presentarse(String tipoDocumentacion, String documentacion) {
+
+		System.out.println("Me llamo " + nombre + " y soy el alumno número  " + id + "con  " + tipoDocumentacion
+				+ documentacion + " y una media de " + calcularNotaFinal());
+
+	}
+
+	protected abstract float calcularNotaFinal();
+
+}

@@ -1,0 +1,111 @@
+
+public class Circulo {
+
+	// atributos
+	private int radio;
+	private Punto centro;
+
+	// constructores
+
+	public Circulo(int radio, Punto centro) {
+
+		this.radio = radio;
+		this.centro = centro;
+
+		// getters
+
+	}
+
+	public int getRadio() {
+		return radio;
+	}
+
+	public Punto getCentro() {
+		return centro;
+	}
+
+	// métodos de clase
+
+	public double distanciaCentros(Circulo circulo) {
+
+		int x1 = centro.getPosicionX();
+		int y1 = centro.getPosicionY();
+		int x2 = circulo.getCentro().getPosicionX();
+		int y2 = circulo.getCentro().getPosicionY();
+
+		double distancia = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+
+		return distancia;
+
+	}
+
+	public boolean equals(Circulo circulo) {
+
+		
+		return (centro.equals(circulo.getCentro()) && circulo.getRadio() == radio);
+
+	
+
+	}
+
+	public boolean sonConcentricos(Circulo circulo) {
+
+		boolean concentricos = false;
+		if (centro.equals(circulo.getCentro())) {
+			concentricos = true;
+
+		}
+
+		return concentricos;
+
+	}
+
+	public boolean tienenRadioIgual(Circulo circulo) {
+
+		boolean radioIgual = false;
+		if (circulo.getRadio() == radio) {
+			radioIgual = true;
+
+		}
+
+		return radioIgual;
+
+	}
+
+	public boolean sonTangentes(Circulo circulo) {
+
+		boolean tangentes = false;
+		if (circulo.distanciaCentros(circulo) == (radio + circulo.getRadio())) {
+			tangentes = true;
+
+		}
+
+		return tangentes;
+
+	}
+
+	public boolean sonSecantes(Circulo circulo) {
+
+		boolean secantes = false;
+		if (circulo.distanciaCentros(circulo) < (radio + circulo.getRadio())) {
+			secantes = true;
+
+		}
+
+		return secantes;
+
+	}
+
+	public boolean noTocan(Circulo circulo) {
+
+		boolean noTocan = false;
+		if (circulo.distanciaCentros(circulo) > (radio + circulo.getRadio())) {
+			noTocan = true;
+
+		}
+
+		return noTocan;
+
+	}
+
+}

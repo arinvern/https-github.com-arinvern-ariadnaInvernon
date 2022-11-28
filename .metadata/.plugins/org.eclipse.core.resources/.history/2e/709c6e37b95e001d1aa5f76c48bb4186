@@ -1,0 +1,13 @@
+
+public class Revolver {
+
+	private int posicionActual;
+	private int posicionBala;
+
+	public Revolver() {
+
+		posicionActual = (int)(Math.random()*10+1);
+		posicionBala = (int)(Math.random()*10+1);
+	}
+
+}

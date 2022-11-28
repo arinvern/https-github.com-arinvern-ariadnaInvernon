@@ -1,0 +1,280 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+	public static ArrayList<Cliente> llistaClients = new ArrayList<Cliente>();
+
+	public static void main(String[] args) {
+
+	
+		int numMenu = 0;
+
+		do {
+
+			numMenu = demanaNum(
+					"Escolleix una opció del menú: \n\n1.Crear client/a \n2.Eliminar client/a \n3.Accedir a menú client/a \n0.Finalitzar programa ");
+
+			switch (numMenu) {
+
+			case 0:
+				System.out.println("Finalitzant el programa");
+				break;
+
+			case 1:
+				crearClient();
+
+				break;
+
+			case 2:
+				baixaClient();
+
+				break;
+
+			case 3:
+
+				menuClient();
+
+			default:
+				System.out.println("error, no has seleccionat cap opció del menú");
+			}
+
+		} while (numMenu != 0);
+	}
+	
+
+	public static void baixaClient() {
+		System.out.println("Introdueix el nom i cognom del client/a que vols eliminar");
+		String nombre = demanaString("Introdueix el nom");
+		String apellido = demanaString("Introdueix el cognom");
+
+		int indexClient = buscarIndexClient(nombre, apellido);
+
+		if (indexClient == -1) {
+			System.out.println("Aquest client no es troba a la nostra base de dades.");
+		} else {
+
+			baixaClient(indexClient);
+
+		}
+	}
+
+	public static void crearClient() {
+		String nombre = demanaString("Introdueix el nom del client/a");
+		String apellido = demanaString("Introdueix el cognom del client/a");
+		ArrayList<Cuenta> cuentas = new ArrayList<Cuenta>();
+		int indexClient;
+
+		if ((llistaClients == null || llistaClients.isEmpty())) {
+			crearClient(nombre, apellido, cuentas);
+		} else {
+
+			indexClient = buscarIndexClient(nombre, apellido);
+
+			if (indexClient == -1) {
+				crearClient(nombre, apellido, cuentas);
+			} else {
+				System.out.println("Error. Aquest client ja es troba a la base de dades.");
+			}
+		}
+	}
+
+	public static void menuClient() {
+		int numSubMenu;
+		int indexClient = dadesClient();
+
+		if (indexClient == -1) {
+			System.out.println("Aquest client no es troba a la nostra base de dades.");
+		} else {
+
+			do {
+
+				numSubMenu = demanaNum(
+						"1.Crear compte d'un client/a \n2.Ingressar euros en un compte d'un client/a\n3.Retirar euros en un compte d'un client/a \n4.Veure saldo\n0.Tornar al menú");
+
+				switch (numSubMenu) {
+
+				case 0:
+					System.out.println("Tornant al menú principal");
+					break;
+
+				case 1:
+
+					menuAfegirCompte(indexClient);
+
+					break;
+
+				case 2:
+
+					menuAfegirDiners(indexClient);
+
+					break;
+				case 3:
+
+					menuRetirarDiners(indexClient);
+
+					break;
+
+				case 4:
+
+					menuVeureSaldo(indexClient);
+
+					break;
+
+				default:
+					System.out.println("error, no has seleccionat cap opció del menú");
+
+				}
+
+			} while (numSubMenu != 0);
+		}
+	}
+
+	public static void menuVeureSaldo(int indexClient) {
+		//lista cuentas y pedir cuenta
+		llistaClients.get(indexClient).printComptes();
+		int compte = demanaNum ("De quin compte vols veure el saldo?");
+		int indexCompte=llistaClients.get(indexClient).buscarIndexCompte(compte);
+		
+		if (indexCompte == -1) {
+			System.out.println("Error. Aquest número de compte no existeix.");
+		} else {
+
+			System.out.println("El saldo és de "
+					+ llistaClients.get(indexClient).getCuentas().get(indexCompte).getSaldo() + " €.");
+		}
+	}
+
+	public static void menuRetirarDiners(int indexClient) {
+		llistaClients.get(indexClient).printComptes();
+		int compte = demanaNum ("De quin compte vols retirar diners?");
+		int indexCompte=llistaClients.get(indexClient).buscarIndexCompte(compte);
+
+		if (indexCompte == -1) {
+			System.out.println("Error. Aquest número de compte no existeix.");
+		} else {
+
+			int quantitat = demanaNum("Quina quantitat vols retirar?");
+
+			llistaClients.get(indexClient).getCuentas().get(indexCompte).retirar(quantitat);
+		}
+	}
+
+	public static void menuAfegirDiners(int indexClient) {
+		llistaClients.get(indexClient).printComptes();
+		int compte = demanaNum ("A quin compte vols afegir diners?");
+		int indexCompte=llistaClients.get(indexClient).buscarIndexCompte(compte);
+
+		if (indexCompte == -1) {
+			System.out.println("Error. Aquest número de compte no existeix.");
+		} else {
+
+			int quantitat = demanaNum("Quina quantitat vols afegir?");
+
+			llistaClients.get(indexClient).getCuentas().get(indexCompte).ingresar(quantitat);
+		}
+	}
+
+	public static void menuAfegirCompte(int indexClient) {
+		if (indexClient == -1) {// si cliente no está en base datos
+			System.out.println("Aquest client no es troba a la nostra base de dades.");
+		} else {
+
+			if ((llistaClients.get(indexClient).getCuentas() == null
+					|| llistaClients.get(indexClient).getCuentas().isEmpty())) { // si la lista de cuentas está vacia
+																					// creo cuenta
+
+				int numCompte = crearNumCompte();
+				llistaClients.get(indexClient).crearCuenta(numCompte);
+
+				System.out.println("S'ha afegit el nou compte al client.");
+
+			} else { // si no está vacía, miro si el numero de cuenta está repetido
+
+				int numCompte = crearNumCompte();
+				int index = llistaClients.get(indexClient).buscarIndexCompte(numCompte);
+
+				if (index == -1) {
+					llistaClients.get(indexClient).crearCuenta(numCompte);// no está repetido, creo cuenta
+
+					System.out.println("S'ha afegit el nou compte al client.");
+
+				} else {
+
+					System.out.println("Aquest numero de compte ja està en us, torna-ho a intentar."); // está repetido,
+																										// no creo
+																										// cuenta
+
+				}
+			}
+		}
+	}
+
+	public static int dadesClient() {
+		String nombre;
+		String apellido;
+		int indexClient;
+		int numSubMenu;
+
+		System.out.println("Introdueix el nom i cognom del client/a.");
+		nombre = demanaString("Introdueix el nom");
+		apellido = demanaString("Introdueix el cognom");
+		indexClient = buscarIndexClient(nombre, apellido);
+		return indexClient;
+	}
+
+	static void crearClient(String nombre, String apellido, ArrayList cuentas) {
+
+		Cliente cliente = new Cliente(nombre, apellido, cuentas);
+
+		llistaClients.add(cliente);
+
+	}
+
+	static int crearNumCompte() {
+
+		int numCuenta = demanaNum("Introdueix el número de compte");
+
+		return numCuenta;
+	}
+
+	static void baixaClient(int indexClient) {
+		System.out.println("El client " + llistaClients.get(indexClient).getNombre() + " "
+				+ llistaClients.get(indexClient).getApellido() + " s'ha eliminat de la base de dades.");
+		llistaClients.remove(indexClient);
+
+	}
+
+	static int buscarIndexClient(String nombre, String apellido) {
+
+		String nomCognom = nombre + apellido;
+		int indexClient = -1;
+		int i = -1;
+		String nomCognomClient;
+
+		do {
+			i++;
+			nomCognomClient = llistaClients.get(i).getNombre() + llistaClients.get(i).getApellido();
+			if (nomCognom.equalsIgnoreCase(nomCognomClient)) {
+
+				indexClient = i;
+			}
+
+		} while (!nomCognom.equalsIgnoreCase(nomCognomClient) && i < llistaClients.size() - 1);
+
+		return indexClient;
+	}
+
+	static int demanaNum(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		int numero = input.nextInt();
+		return numero;
+	}
+
+	static String demanaString(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		String text = input.nextLine();
+		return text;
+	}
+}

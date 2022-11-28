@@ -1,0 +1,5 @@
+package patata;
+
+public enum Tuberculos {
+
+}

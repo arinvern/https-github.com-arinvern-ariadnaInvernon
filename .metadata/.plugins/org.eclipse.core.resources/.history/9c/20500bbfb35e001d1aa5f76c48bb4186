@@ -1,0 +1,12 @@
+
+public class Juego {
+
+	private Jugador jugador;
+	private Revolver revolver;
+	
+	public Juego(Revolver revolver, Jugador jugador) {
+
+		this.revolver = revolver;
+		this.jugador = jugador;
+	}
+}

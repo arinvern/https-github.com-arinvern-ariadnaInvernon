@@ -1,0 +1,22 @@
+
+public class Circulo {
+
+	// atributos
+	private int radio;
+	private Punto centro;
+
+	// constructores
+
+	public Circulo (int radio, Punto centro {
+
+			this.radio = radio;
+			this.centro = centro;
+				
+			//
+			
+			// getters y setters
+
+			// métodos de clase
+		
+	}
+}

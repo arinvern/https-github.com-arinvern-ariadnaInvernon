@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;public static int esPalindrom(String text)&apos; from &apos;App.main(...)&apos; to &apos;App&apos;&#x0D;&#x0A;- Original project: &apos;M7.3ex3&apos;&#x0D;&#x0A;- Method name: &apos;esPalindrom&apos;&#x0D;&#x0A;- Destination type: &apos;App&apos;&#x0D;&#x0A;- Declared visibility: &apos;public&apos;" comments="false" description="Extract method &apos;esPalindrom&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;{App.java" name="esPalindrom" replace="false" selection="153 191" stamp="1665589003734" version="1.0" visibility="1"/>
+</session>

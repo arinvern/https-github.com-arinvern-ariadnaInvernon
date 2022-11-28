@@ -1,0 +1,57 @@
+
+public class Circulo {
+
+	// atributos
+	private int radio;
+	private Punto centro;
+
+	// constructores
+
+	public Circulo(int radio, Punto centro) {
+
+		this.radio = radio;
+		this.centro = centro;
+
+		
+	// getters y setters
+
+	}
+
+	public int getRadio() {
+		return radio;
+	}
+
+	public Punto getCentro() {
+		return centro;
+	}
+
+	public void setRadio(int radio) {
+		this.radio = radio;
+	}
+
+	public void setCentro(Punto centro) {
+		this.centro = centro;
+	}
+
+	// métodos de clase
+	
+	
+	
+	public int distanciaCentros(Circulo circulo) {
+		
+		
+	}
+
+	//equals(altreCercle)
+
+	//sonConcentrics(altreCercle)
+
+	//tenenIgualRadi(altreCercle)
+
+	//sonTangents(altreCercle)
+
+	//sonSecants(altreCercle)
+
+	//noEsToquen(altreCercle)
+
+}
