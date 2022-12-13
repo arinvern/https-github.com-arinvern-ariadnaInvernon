@@ -10,7 +10,6 @@ public class Venda {
 	public Venda() {
 
 		llistaProductes = new ArrayList<Producte>();
-		preuTotal = 0;
 
 	}
 
@@ -25,13 +24,13 @@ public class Venda {
 
 	public void calcularTotal() {
 
-		double calculTotal = 0;
-
+		
+		preuTotal = 0;
 		try {
 
 			for (int i = 0; i < llistaProductes.size(); i++) {
 
-				calculTotal += llistaProductes.get(i).getPreu();
+				preuTotal += llistaProductes.get(i).getPreu();
 			}
 
 			if (llistaProductes.isEmpty() || llistaProductes == null) {
@@ -43,7 +42,7 @@ public class Venda {
 
 		}
 
-		preuTotal = calculTotal;
+		
 	}
 
 	@Override
